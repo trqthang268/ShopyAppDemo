@@ -1,0 +1,15 @@
+﻿@model List<Shopy_App.Models.ShoppingCartItem>
+
+<h2>Checkout</h2>
+
+<form asp-action="Checkout" method="post">
+    <!-- Add order details form fields here -->
+
+    <div class="form-group">
+        <label for="CustomerName">Name</label>
+        <input type="text" class="form-control" id="CustomerName" name="CustomerName" required>
+    </div>
+    <!-- Add more form fields as necessary -->
+
+    <button type="submit" class="btn btn-primary">Confirm Order</button>
+</form>

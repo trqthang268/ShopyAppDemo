@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Shopy_App.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="authDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Account
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="authDropdown">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li><a class="dropdown-item" href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();">Logout</a></li>
+        }
+        else
+        {
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a></li>
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Register</a></li>
+        }
+    </ul>
+</div>
+
+<form id="logoutForm" asp-controller="Account" asp-action="Logout" method="post" style="display:none;"></form>
